@@ -1,0 +1,10 @@
+body {
+    background-image: url(src/images/ciel.jpg);
+    background-size: cover; /* L'image s'adapte à la taille de la page */
+    background-position: center;
+    background-repeat: no-repeat; /* éevite la repetition de l'image */
+}
+
+footer {
+    color: cadetblue;
+}
