@@ -6,30 +6,48 @@
     Météo
   </title>
   <link rel="stylesheet" href="style.css"> <!-- Donne accès au fichier style.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!-- Ajout de Font Awesome pour faire apparaitre la loupe-->
 </head>
 <body>
-<header class="logo">
-    <img src="src/images/soleil.webp" alt="image d'un soleil" width="90" height="90"/>
-</header>
-<main id="app">
-  <h1>
-    Météo
-  </h1>
-  <section class="counter">
-    <div class="counter-info">
-      <p class="counter-text">Counter is</p>
-      <p class="counter-value" id="counter-value"></p>
+  <div class="container">
+    <div class="input-container">
+      <input class="search-input" id="searchInput" placeholder="Chercher une ville. . .">
+      <button class="search-button" id="searchButton">
+        <i class="fas fa-search"></i>
+      </button>
+      <img src="src/images/soleil.webp" alt="image d'un soleil" width="90" height="90"/>
     </div>
-    <div class="counter-interaction">
-      <button id="increaseByOne" type="button">+1</button>
-      <button id="increaseByTwo" type="button">+2</button>
-      <button id="decreaseByOne" type="button">-1</button>
-      <button id="decreaseByTwo" type="button">-2</button>
-    </div>
-  </section>
-</main>
-<footer >
+    <div class="weather-container">
+      <div id="cityWeather" class="city-weather hidden">
+        <img class="icon" id="icon" alt="icône de météo selon la ville">
+        <h1
+                id="city" class="city">
+        </h1>
+        <div class="details">
+          <img src="src/images/vent.png" alt="icône d'un vent" width="40" height="40"/>
+            <div class="description">
+              <p class="value" id="wind">
+                km/h
+              </p>
+            </div>
+        </div>
+      </div>
 
+
+      <div id="notcityFound" class="no-city-found hidden">
+        <img src="src/images/not-found.png" alt="image signifiant que la localisation n'ait pas été trouvé"
+             width="150" height="150"/>
+        <p>
+          Oops! La localisation n'a pas été trouvé!
+        </p>
+
+
+      </div>
+  </div>
+<footer >
+    <small>
+      Copyrights 2025
+    </small>
 </footer>
 <script type="module" src="/src/main.js"></script>
 </body>

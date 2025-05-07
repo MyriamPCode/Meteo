@@ -1,10 +1,46 @@
+:root {
+    --color-white: #f1f8fb;
+}
+
 body {
     background-image: url(src/images/ciel.jpg);
-    background-size: cover; /* L'image s'adapte à la taille de la page */
+    background-size: cover;                       /* L'image s'adapte à la taille de la page */
     background-position: center;
-    background-repeat: no-repeat; /* éevite la repetition de l'image */
+    background-repeat: no-repeat;                 /* évite la repetition de l'image */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button {
+    border-radius: 50px;
+}
+
+.container {
+    border: 2px solid var(--color-white);
+    padding: 30px;
+    border-radius: 10px;
+    backdrop-filter: blur(40px);
+}
+
+.weather-container, .no-city-found {
+    height: 0px;
+    overflow: hidden;
+}
+
+.no-city-found {
+    height: 300px;
+}
+
+.hidden {
+    height: 0;
+}
+
+.city-weather, .icon {
+    width: 150px;
 }
 
 footer {
-    color: cadetblue;
+    /*color: cadetblue; */
 }
