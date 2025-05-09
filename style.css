@@ -24,6 +24,7 @@ body {
     backdrop-filter: blur(40px);
 }
 
+/*
 .weather-container, .no-city-found {
     height: 0px;
     overflow: hidden;
@@ -31,10 +32,10 @@ body {
 
 .no-city-found {
     height: 300px;
-}
+} */
 
 .hidden {
-    height: 0;
+    display: none;
 }
 
 .city-weather, .icon {

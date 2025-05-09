@@ -6,10 +6,14 @@ const city = document.getElementById("city");
 const wind = document.getElementById("wind");
 const icon = document.getElementById("icon");
 const cityWeather = document.getElementById("cityWeather");
-const notCityFound = document.getElementById("notcityFound");
+const notCityFound = document.getElementById("notCityFound");
 
 searchButton.addEventListener("click", updateWeatherData);
-searchInput.addEventListener("keydown",(event) => event.key === "Enter" && updateWeatherData());
+searchInput.addEventListener("keydown",(event) => {
+  if (event.key === "Enter") {
+    updateWeatherData();
+  }
+});
 
 async function updateWeatherData() {
   try {
@@ -21,6 +25,8 @@ async function updateWeatherData() {
     city.textContent = weatherData.city;
     wind.textContent = weatherData.wind;
     icon.src = weatherData.icon;
+    cityWeather.classList.remove("hidden");
+    notCityFound.classList.add("hidden");
   } catch (error) {
     if (error?.code === "404") {
       cityWeather.classList.add("hidden");
