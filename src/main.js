@@ -4,22 +4,49 @@ const searchInput= document.getElementById("searchInput");
 const searchButton = document.getElementById("searchButton");
 const city = document.getElementById("city");
 const wind = document.getElementById("wind");
+const icon = document.getElementById("icon");
+const cityWeather = document.getElementById("cityWeather");
+const notCityFound = document.getElementById("notcityFound");
 
 searchButton.addEventListener("click", updateWeatherData);
 searchInput.addEventListener("keydown",(event) => event.key === "Enter" && updateWeatherData());
 
-async function updateweatherData() {
+async function updateWeatherData() {
   try {
     if (!searchInput.value.trim()) {
       alert("Svp entrez une ville");
       return;
     }
+    const weatherData = await getWeatherData(searchInput.value);
+    city.textContent = weatherData.city;
+    wind.textContent = weatherData.wind;
+    icon.src = weatherData.icon;
   } catch (error) {
     if (error?.code === "404") {
-      noCityFound.classlist.remove("hidden");
+      cityWeather.classList.add("hidden");
+      notCityFound.classList.remove("hidden");
       console.error(error.message);
     } else {
       alert(" Une erreur est survenue: " + error);
     }
   }
+}
+
+function getIconUrl(icon) {
+  return `./src/images/${icon.toLowerCase()}.png`;
+}
+
+async function getWeatherData(city) {
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  const apiResponse = await fetch(apiUrl);
+  const apiResponseBody = await apiResponse.json();
+
+  if(apiResponseBody.code === "404") {
+    throw {code: "404", message: "City not found"};
+  }
+  return {
+    city: apiResponseBody.name,
+    wind: Math.round(apiResponseBody.wind.speed),
+    icon: getIconUrl(apiResponseBody.weather[0].main),
+  };
 }
