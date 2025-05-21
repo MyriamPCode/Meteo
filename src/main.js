@@ -40,9 +40,10 @@ async function updateWeatherData() {
   }
 }
 
+/*
 function getIconUrl(icon) {
   return `./src/images/${icon.toLowerCase()}.png`;
-}
+}  */
 
 async function getWeatherData(city) {
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -56,6 +57,6 @@ async function getWeatherData(city) {
     city: apiResponseBody.name,
     wind: Math.round(apiResponseBody.wind.speed),
     humidity: apiResponseBody.main.humidity,
-    icon: getIconUrl(apiResponseBody.weather[0].main),
+    icon: `https://openweathermap.org/img/wn/${apiResponseBody.weather[0].icon}@2x.png`,
   };
 }
