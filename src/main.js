@@ -4,6 +4,7 @@ const searchInput= document.getElementById("searchInput");
 const searchButton = document.getElementById("searchButton");
 const city = document.getElementById("city");
 const wind = document.getElementById("wind");
+const humidity = document.getElementById("humidity");
 const icon = document.getElementById("icon");
 const cityWeather = document.getElementById("cityWeather");
 const notCityFound = document.getElementById("notCityFound");
@@ -23,7 +24,8 @@ async function updateWeatherData() {
     }
     const weatherData = await getWeatherData(searchInput.value);
     city.textContent = weatherData.city;
-    wind.textContent = weatherData.wind;
+    wind.textContent = weatherData.wind + " km/h";
+    humidity.textContent = weatherData.humidity + " % ";
     icon.src = weatherData.icon;
     cityWeather.classList.remove("hidden");
     notCityFound.classList.add("hidden");
@@ -53,6 +55,7 @@ async function getWeatherData(city) {
   return {
     city: apiResponseBody.name,
     wind: Math.round(apiResponseBody.wind.speed),
+    humidity: apiResponseBody.main.humidity,
     icon: getIconUrl(apiResponseBody.weather[0].main),
   };
 }
