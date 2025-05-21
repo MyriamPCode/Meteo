@@ -29,6 +29,18 @@ body {
     text-align: center;
 }
 
+.wind-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.humidity-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 /*
 .weather-container, .no-city-found {
     height: 0px;

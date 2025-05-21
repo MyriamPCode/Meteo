@@ -24,23 +24,29 @@
               id="city" class="city">
       </h1>
       <div class="details">
+        <h2>
         <p class="value" id="temperature"></p>
+        </h2>
         <h4>Vent</h4>
-        <img src="src/images/vent.webp" alt="icône du vent" width="50" height="50"/>
-        <div class="description">
-          <p class="value" id="wind"></p>
+        <div class="wind-container">
+          <img src="src/images/vent.webp" alt="icône du vent" width="50" height="50"/>
+          <div class="description">
+            <p class="value" id="wind"></p>
+          </div>
         </div>
         <h4>Humidité</h4>
-        <img src="src/images/humidite.jpg" alt="icone représentant l'humidite" width="50" height="50"/>
-        <div class="description">
-          <p class="value" id="humidity"></p>
+        <div class="humidity-container">
+          <img src="src/images/humidite.jpg" alt="icone représentant l'humidite" width="50" height="50"/>
+          <div class="description">
+            <p class="value" id="humidity"></p>
+          </div>
         </div>
       </div>
     </div>
 
     <div id="notCityFound" class="no-city-found hidden">
       <img src="src/images/not-found.png" alt="image signifiant que la localisation n'ait pas été trouvé"
-           width="120" height="120"/>
+           width="350" height="300"/>
       <p>
         Oops! La localisation n'a pas été trouvé!
       </p>

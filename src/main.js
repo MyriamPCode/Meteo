@@ -52,7 +52,7 @@ async function getWeatherData(city) {
   const apiResponse = await fetch(apiUrl);
   const apiResponseBody = await apiResponse.json();
 
-  if(apiResponseBody.code === "404") {
+  if(apiResponseBody.cod === "404") {
     throw {code: "404", message: "City not found"};
   }
   return {
