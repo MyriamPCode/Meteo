@@ -3,6 +3,7 @@ const apiKey = "54f19a0bc022a12a24c203ed52811bee";
 const searchInput= document.getElementById("searchInput");
 const searchButton = document.getElementById("searchButton");
 const city = document.getElementById("city");
+const temperature = document.getElementById("temperature");
 const wind = document.getElementById("wind");
 const humidity = document.getElementById("humidity");
 const icon = document.getElementById("icon");
@@ -24,8 +25,9 @@ async function updateWeatherData() {
     }
     const weatherData = await getWeatherData(searchInput.value);
     city.textContent = weatherData.city;
+    temperature.textContent = weatherData.temperature + " °C";
     wind.textContent = weatherData.wind + " km/h";
-    humidity.textContent = weatherData.humidity + " % ";
+    humidity.textContent = weatherData.humidity + " %";
     icon.src = weatherData.icon;
     cityWeather.classList.remove("hidden");
     notCityFound.classList.add("hidden");
@@ -55,6 +57,7 @@ async function getWeatherData(city) {
   }
   return {
     city: apiResponseBody.name,
+    temperature: Math.round(apiResponseBody.main.temp),
     wind: Math.round(apiResponseBody.wind.speed),
     humidity: apiResponseBody.main.humidity,
     icon: `https://openweathermap.org/img/wn/${apiResponseBody.weather[0].icon}@2x.png`,
