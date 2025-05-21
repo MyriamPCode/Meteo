@@ -22,6 +22,11 @@ body {
     padding: 30px;
     border-radius: 10px;
     backdrop-filter: blur(40px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 /*
