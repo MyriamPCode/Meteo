@@ -1,4 +1,4 @@
-const apiKey = "54f19a0bc022a12a24c203ed52811bee";
+const apiKey = import.meta.env.apiKey;
 
 const searchInput= document.getElementById("searchInput");
 const searchButton = document.getElementById("searchButton");
